@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Loader } from './Loader/Loader';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
@@ -54,13 +55,24 @@ export class App extends Component {
           height: '100vh',
           display: 'block',
           textAlign: 'center',
-          fontSize: 40,
+          fontSize: 15,
           color: '#010101',
         }}
       >
         <Searchbar onSubmit={this.handleSearch} />
         {images && <ImageGallery images={images} />}
-        <ToastContainer autoClose={3000} />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
 
         {isLoading ? (
           <Loader />

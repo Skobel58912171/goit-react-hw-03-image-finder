@@ -1,9 +1,14 @@
 import { Component } from 'react';
-// import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Header, Form, Field, Btn } from './Searchbar.styled';
 
 export class Searchbar extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+  
   state = {
     searchQuery: '',
   };
@@ -15,7 +20,7 @@ export class Searchbar extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.searchQuery.trim() === '') {
-      alert(
+      toast(
         'Sorry, there are no images matching your search query. Please try again'
       );
       return;

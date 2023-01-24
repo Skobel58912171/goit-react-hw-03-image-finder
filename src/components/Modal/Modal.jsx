@@ -1,7 +1,11 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { Backdrop, ModalContainer, ImgLarge } from './Modal.styled';
 export class Modal extends Component {
+  static propTypes = {
+    onClose: PropTypes.func.isRequired,
+  };
+
   componentDidMount() {
     window.addEventListener('keydown', this.onCloseByEsc);
   }
