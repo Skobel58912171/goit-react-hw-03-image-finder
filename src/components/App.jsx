@@ -41,7 +41,7 @@ export class App extends Component {
   }
 
   handleSearch = searchQuery => {
-    this.setState({ searchQuery, isLoading: true });
+    this.setState({ searchQuery, page: 1, isLoading: true });
   };
 
   handleLoadMore = () => {
